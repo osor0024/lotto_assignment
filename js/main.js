@@ -18,9 +18,7 @@ function init() {
     firstButton.addEventListener("click", function () {
         navigate(0);
     });
-    document.getElementById("btnBack").addEventListener("click", function () {
-        navigate(1);
-    });
+   
     document.getElementById("btnSend").addEventListener("click", play_audio);
 }
 
@@ -97,6 +95,7 @@ let serverData = {
 
                     }
                 }
+            navigate(1);
 
             })
             .catch(function (err) {

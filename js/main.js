@@ -15,11 +15,10 @@ function init() {
     firstButton.addEventListener("click", serverData.getJSON);
 
 
-    firstButton.addEventListener("click", function () {
-        navigate(0);
+    document.getElementById("btnBack").addEventListener("click", function () {
+        navigate(1);
     });
-   
-    document.getElementById("btnSend").addEventListener("click", play_audio);
+    firstButton.addEventListener("click", play_audio);
 }
 
 
@@ -41,24 +40,25 @@ let serverData = {
     getJSON: function () {
 
         let digits = document.getElementById("digits");
+        let max = document.getElementById("max");
+
+
         if (digits.value.length == 0) {
             alert("Please enter the digits you want");
             digits.focus();
-            return;
-        }
 
-        let max = document.getElementById("max");
-        if (max.value.length == 0) {
-            let max = document.getElementById("max");
+            return;
+
+        } else if (max.value.length == 0) {
             alert("Please enter a range");
             max.focus();
             return;
         }
 
-
+        //console.4log("Student");
 
         let formdata = new FormData();
-        
+
         formdata.append("digits", digits.value);
         formdata.append("max", document.getElementById("max").value);
 
@@ -72,37 +72,43 @@ let serverData = {
 
         fetch(request)
             .then(function (response) {
-            
+
                 console.log(response);
                 return response.json();
             })
-        
+
             .then(function (data) {
-            
+
                 console.log(data);
                 console.log(data.numbers);
 
                 if (data.code == 0) {
 
-            let ul = document.querySelector(".num_list");
+                    let ul = document.querySelector(".num_list");
                     ul.innerHTML = "";
                     for (let item in data.numbers) {
-                        
+
                         let li = document.createElement("li");
                         li.innerHTML = data.numbers[item];
                         li.className = "cuadritos";
                         ul.appendChild(li);
 
                     }
+
+                    navigate(0);
+
                 }
-            navigate(1);
 
             })
             .catch(function (err) {
                 alert("Error: " + err.message);
             });
     }
+
 }
+
+
+
 
 
 

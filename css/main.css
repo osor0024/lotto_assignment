@@ -132,7 +132,12 @@ ul {
     padding: 1rem;
     margin: 1rem;
     font-size: 2rem;
-    color: white;
+    color: dimgray;
+    border-radius: 50%;
+    background-color: white;
+    border: solid 2px gray;
+    height: 2.3rem;
+    width: 2.3rem;
 }
 
 

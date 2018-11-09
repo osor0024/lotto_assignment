@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Lotto</title>
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+   <audio id="miaudio">
+       <source src="./claps3.mp3" type ="audio/mp3"/>
+   </audio>
+    <div id="home" class="page active" >
+        <header> 
+       <h1> Lotto Numbers</h1>
+        </header>
+        <section class="main">
+            <p class="formBox">
+                <label for="digits">Number of Digits</label>
+                <input id="digits" type="number" max="10" min="1" placeholder="6" />
+            </p>
+            <p class="formBox">
+                <label for="max">Range</label>
+                <span>1 to </span><input id="max" type="number" min="2" max="99" placeholder="49" />
+            </p>
+            <p class="formBox buttons">
+                <button id="btnSend">Generate<br/> Numbers</button>
+            </p>
+        </section>
+    </div>
+    <div id="list" class="page">
+        <header>
+            <h1>Lotto Numbers</h1>
+        </header>
+        <section class="main">
+            <p id="errorMessage"></p>
+            <ul class="num_list">
+                <!-- display the generated numbers from the server -->
+            </ul>
+            <p>
+                <button id="btnBack">Start <br/>Again</button>
+            </p>
+        </section>
+    </div>
+       <footer>
+       <p>&copy;
+            <time datetime="2018">2018</time> Natalia Osorio C.</p>
+        
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
